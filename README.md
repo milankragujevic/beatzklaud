@@ -1,2 +1,2 @@
 # beatzklaud
-A Desktop SoundCloud client for Windows and Linux
+A cloud music player for Windows and Linux
