@@ -1,0 +1,46 @@
+{
+    "application": {
+        "single_instance_guid": "{D62BE712-35FF-4CDE-A947-A7F0B81207CE}"
+    },
+    "debugging": {
+        "show_console": false,
+        "log_level": "INFO",
+        "log_file": ""
+    },
+    "main_window": {
+        "title": "BeatzKlaud",
+        "icon": "",
+        "default_size": [466, 708],
+        "minimum_size": [466, 708],
+        "maximum_size": [466, 708],
+        "disable_maximize_button": true,
+        "center_on_screen": true
+    },
+    "popup_window": {
+        "icon": "",
+        "fixed_title": ""
+    },
+    "web_server": {
+        "listen_on": ["127.0.0.1", 54007],
+        "www_directory": "www",
+        "index_files": ["index.html", "index.php"],
+        "cgi_interpreter": "php/php-cgi.exe",
+        "cgi_extensions": ["php"]
+    },
+    "msie": {
+        "error_page": "www/error.html",
+        "smooth_scroll": true,
+        "enable_f5_refresh": true,
+        "show_context_menu": true,
+        "use_themes": true,
+        "disable_script_debugger": false,
+        "hide_dialog_boxes": false,
+        "silent_operations": false,
+        "autocomplete_forms": false,
+        "windowed_select_control": false,
+        "disable_scrollbars": true,
+        "flat_scrollbars": false,
+        "utf8_url_encoding": true,
+        "dpi_aware": false
+    }
+}

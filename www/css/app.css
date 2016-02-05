@@ -1,0 +1,199 @@
+* {
+	font-family: 'Franklin Gothic';
+}
+
+body {
+	margin: 0px;
+	background: #E9EAEC;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.navigation {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 620px;
+	width: 50px;
+	background-color: #000;
+}
+
+.navigation div a {
+	width: 20px;
+	height: 20px;
+	text-decoration: none;
+	display: block;
+	padding: 15px;
+	padding-top: 13px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.navigation div a img {
+	text-decoration: none;
+	width: 16px;
+	height: 16px;
+	border: none;
+}
+
+.navigation div a:hover {
+	background-color: #0F0F0F;
+}
+
+.navigation div a.active {
+	background-color: #4D4D4D;
+}
+
+.main {
+	position: fixed;
+	top: 0px;
+	left: 50px;
+	height: 620px;
+	width: 400px;
+}
+
+.main .section-title {
+	display: block;
+	padding: 15px;
+	padding-top: 8px;
+	height: 25px;
+	width: 400px;
+	background-color: #E5E5E5;
+	border-bottom: solid 1px #BEBEBE;
+	text-transform: uppercase;
+	font-size: 23px;
+	font-weight: 600;
+}
+
+.main .section-title span {
+	float: left;
+	display: block;
+}
+
+.main .section-title img {
+	float: right;
+	display: block;
+	margin-top: 7px;
+}
+
+.search .section-title {
+	background-color: #FFF;
+}
+
+.search .section-title input {
+	border: none;
+	background-color: #FFF;
+	float: left;
+	width: 330px;
+	height: 35px;
+	margin-top: -8px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 12px;
+	padding-bottom: 0px;
+	font-size: 23px;
+	color: #6F6F6F;
+}
+
+.player-ui {
+	height: 50px;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 450px;
+	background-color: #000;
+}
+
+.player-ui .seekbar {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 450px;
+	height: 5px;
+	cursor: pointer;
+	background-color: #C7226A;
+}
+
+.player-ui .seekbar-inner {
+	background-color: #151515;
+	width: 450px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 5px;
+	cursor: pointer;
+}
+
+.player-ui .controls {
+	height: 45px;
+	position: absolute;
+	top: 5px;
+	left: 0px;
+}
+
+.controls .button {
+	float: left;
+}
+
+.controls .button a {
+	width: 20px;
+	height: 20px;
+	text-decoration: none;
+	display: block;
+	padding: 15px;
+	padding-left: 17px;
+	padding-top: 12px;
+	border-right: solid 1px #282828;
+	cursor: pointer;
+}
+
+.controls .button a img {
+	text-decoration: none;
+	width: 16px;
+	height: 16px;
+	border: none;
+}
+
+.controls .button a:hover {
+	background-color: #0F0F0F;
+}
+
+.playlist-list, .search-results-list {
+	height: 570px;
+	width: 400px;
+	overflow: hidden;
+}
+
+.playlist-list .track, .search-results-list .track {
+	width: 400px;
+	height: 88px;
+	position: relative;
+	border-bottom: solid 1px #D0D1D3;
+	cursor: pointer;
+	background-color: #E9EAEC;
+}
+
+.playlist-list .track:hover, .search-results-list .track:hover {
+	background-color: #D6D7D9;
+}
+
+.playlist-list .track .cover, .search-results-list .track .cover {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.playlist-list .track .info, .search-results-list .track .info {
+	position: absolute;
+	top: 10px;
+	left: 107px;
+	font-weight: 300;
+	font-size: 13px;
+}
+
+.playlist-list .track .info .title, .search-results-list .track .info .title {
+	font-weight: 600;
+	font-size: 16px;
+}
