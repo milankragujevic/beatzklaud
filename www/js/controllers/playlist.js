@@ -12,6 +12,7 @@ function push_track_playlist(i) {
 function redraw_tracks() {
 	$.get('/ajax/playlist.php', {t: Math.round(Date.now())}, function(data) {
 		$('.playlist-list').html('');
+		if(data == null) { data = []; }
 		window.playlist = data;
 		push_track_playlist(0);
 	});
