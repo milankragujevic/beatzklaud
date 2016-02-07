@@ -1,9 +1,21 @@
 function next() {
-	
+	if(total_songs() < 2) { return; }
+	var song = current_song() + 1;
+	if(song > total_songs()) {
+		song = 0;
+	}
+	window.current_index = song;
+	play_song(get_nth_song(song));
 }
 
 function previous() {
-	
+	if(total_songs() < 2) { return; }
+	var song = current_song() - 1;
+	if(song < 0) {
+		song = total_songs() - 1;
+	}
+	window.current_index = song;
+	play_song(get_nth_song(song));
 }
 
 function play() {
@@ -12,6 +24,10 @@ function play() {
 		window.player.play();
 		hidePlay();
 		showPause();
+	} else {
+		window.current_index = 0;
+		window.player_state = 'paused';
+		play_song(get_nth_song(0));
 	}
 }
 
@@ -59,7 +75,10 @@ function updatePlayerTime() {
 }
 
 function playURL(url) {
+	window.player_state = 'paused';
 	window.player.setSrc(url);
+	window.player.setCurrentTime(0);
+	updateSeekbar(0);
 	play();
 }
 
@@ -67,7 +86,7 @@ function initPlayer(callback) {
 	new MediaElement('player1', {
 		enablePluginDebug: false,
 		plugins: ['flash', 'silverlight'],
-		type: 'audio/mp3',
+		type: 'video/mp4',
 		pluginPath: '/js/vendor/mediaelement/',
 		flashName: 'flashmediaelement.swf',
 		silverlightName: 'silverlightmediaelement.xap',
@@ -81,6 +100,11 @@ function initPlayer(callback) {
 			window.player_state = 'paused';
 			mediaElement.addEventListener('timeupdate', function(e) { 
 				updatePlayerTime();
+			}, false);
+			mediaElement.addEventListener('ended', function(e) { 
+				if(window.player.duration > 0 && window.player_state != 'paused') {
+					next();
+				}
 			}, false);
 			callback();
 		},

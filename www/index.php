@@ -20,13 +20,16 @@ header("X-UA-Compatible: ie=7");
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/vendor/mediaelement/mediaelement-and-player.min.js"></script>
-	<script src="js/vendor/jquery.scrollbar.js"></script>
+	<script src="js/vendor/json2.js"></script>
+	<script src="js/vendor/jstorage.js"></script>
+	<script src="js/vendor/md5.js"></script>
+	<script src="js/vendor/xdr.js"></script>
 	<link rel="stylesheet" href="js/vendor/mediaelement/mediaelementplayer.css" />
-	<link rel="stylesheet" href="js/vendor/jquery.scrollbar.css" />
 	<script src="js/plugins.js?t=<?php echo filemtime(__DIR__ . '/js/plugins.js'); ?>"></script>
 	<script src="js/controllers/player.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/player.js'); ?>"></script>
 	<script src="js/controllers/playlist.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/playlist.js'); ?>"></script>
-	<script src="js/controllers/search.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/search.js'); ?>&z=1"></script>
+	<script src="js/controllers/search.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/search.js'); ?>"></script>
+	<script src="js/controllers/top-tracks.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/top-tracks.js'); ?>"></script>
 	<script src="js/main.js?t=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>"></script>
 </head>
 <body>
@@ -41,6 +44,11 @@ header("X-UA-Compatible: ie=7");
 				<img src="img/search.png" title="Search" />
 			</a>
 		</div>
+		<div class="top-tracks-icon">
+			<a href="#" onclick="_toptracks()">
+				<img src="img/top-tracks.png" title="Top Tracks" />
+			</a>
+		</div>
 	</div>
 	<div class="main">
 		<div class="my-playlist">
@@ -49,16 +57,25 @@ header("X-UA-Compatible: ie=7");
 				<img src="img/loading.gif" class="loading" />
 				<div class="clearfix"></div>
 			</div>
-			<div class="playlist-list scrollbar-macosx">
+			<div class="playlist-list">
+			</div>
+		</div>
+		<div class="top-tracks">
+			<div class="section-title">
+				<span>Top Tracks</span>
+				<img src="img/loading.gif" class="loading" />
+				<div class="clearfix"></div>
+			</div>
+			<div class="top-tracks-list">
 			</div>
 		</div>
 		<div class="search">
 			<div class="section-title">
-				<input type="text" class="search-query" />
+				<input type="text" class="search-query" placeholder="Search Music" />
 				<img src="img/loading2.gif" class="loading" />
 				<div class="clearfix"></div>
 			</div>
-			<div class="search-results-list scrollbar-macosx">
+			<div class="search-results-list">
 			</div>
 		</div>
 	</div>
@@ -73,7 +90,11 @@ header("X-UA-Compatible: ie=7");
 			<div class="next-button button"><a href="#" onclick="next()"><img src="img/next.png" /></a></div>
 			<div class="clearfix"></div>
 		</div>
+		<div class="now-playing">
+			<div class="title"></div>
+			<div class="artist"></div>
+		</div>
 	</div>
-	<audio id="player1"></audio>
+	<video id="player1"></video>
 </body>
 </html>

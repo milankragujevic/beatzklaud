@@ -1,5 +1,5 @@
 $(function() {
-	window.api = 'https://api.musichq.xyz/';
+	window.playlist = [];
 	$('.player-ui .seekbar').click(function(e) {
 		var left = e.clientX;
 		var totalWidth = $(window).width();
@@ -7,7 +7,7 @@ $(function() {
 		seekAudio(percent);
 	});
 	initPlayer(function() {
-		playURL('http://localhost/leanon.mp3');
+		
 	});
 	_playlist();
 });
