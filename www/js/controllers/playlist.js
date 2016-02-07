@@ -3,7 +3,7 @@ function push_track_playlist(i) {
 	$.get('/ajax/track.php', {id: id, t: Math.round(Date.now())}, function(track) {
 		$('.playlist-list .track[data-id="' + id + '"]').remove();
 		$('.playlist-list').append('<div class="track" data-i="' + i + '" data-id="' + id + '"><div class="cover"><img src="' + track.thumbnail + '" width="87" height="87" /></div><div class="info"><div class="title">' + track.title + '</div><div class="meta">by <span class="artist">' + track.artist + '</span></div></div><div class="actions"><a href="#" class="delete-from-playlist"><img src="img/delete2.png" /></a><a href="#" class="play-song"><img src="img/play2.png" /></a></div></div>');
-		if(i + 1 != window.playlist.length) {
+		if(i + 1 != window.playlist.length && window.playlist.length != 1) {
 			push_track_playlist(i + 1);
 		}
 	});
