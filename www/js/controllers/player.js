@@ -25,9 +25,9 @@ function play() {
 		hidePlay();
 		showPause();
 	} else {
-		window.current_index = 0;
+		window.current_index = get_first_playlist_item();
 		window.player_state = 'paused';
-		play_song(get_nth_song(0));
+		play_song(get_nth_song(get_first_playlist_item()));
 	}
 }
 
