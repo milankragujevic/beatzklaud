@@ -1,11 +1,3 @@
-<?php 
-header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-header("X-UA-Compatible: ie=7");
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +7,8 @@ header("X-UA-Compatible: ie=7");
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/main.css?t=<?php echo filemtime(__DIR__ . '/css/main.css'); ?>">
-	<link rel="stylesheet" href="css/app.css?t=<?php echo filemtime(__DIR__ . '/css/app.css'); ?>">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/app.css">
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/vendor/mediaelement/mediaelement-and-player.min.js"></script>
@@ -25,12 +17,12 @@ header("X-UA-Compatible: ie=7");
 	<script src="js/vendor/md5.js"></script>
 	<script src="js/vendor/xdr.js"></script>
 	<link rel="stylesheet" href="js/vendor/mediaelement/mediaelementplayer.css" />
-	<script src="js/plugins.js?t=<?php echo filemtime(__DIR__ . '/js/plugins.js'); ?>"></script>
-	<script src="js/controllers/player.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/player.js'); ?>"></script>
-	<script src="js/controllers/playlist.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/playlist.js'); ?>"></script>
-	<script src="js/controllers/search.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/search.js'); ?>"></script>
-	<script src="js/controllers/top-tracks.js?t=<?php echo filemtime(__DIR__ . '/js/controllers/top-tracks.js'); ?>"></script>
-	<script src="js/main.js?t=<?php echo filemtime(__DIR__ . '/js/main.js'); ?>"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/controllers/player.js"></script>
+	<script src="js/controllers/playlist.js"></script>
+	<script src="js/controllers/search.js"></script>
+	<script src="js/controllers/top-tracks.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 	<div class="navigation">
