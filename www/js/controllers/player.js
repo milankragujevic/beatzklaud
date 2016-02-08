@@ -97,7 +97,7 @@ function initPlayer(callback) {
 		timerRate: 250,
 		success: function (mediaElement, domObject) { 
 			window.player = mediaElement;
-			window.player_state = 'paused';
+			window.player_state = 'stopped';
 			mediaElement.addEventListener('timeupdate', function(e) { 
 				updatePlayerTime();
 			}, false);

@@ -10,11 +10,13 @@ function push_track_playlist(i) {
 }
 
 function redraw_tracks() {
+	$('.loading').fadeIn(300);
 	$.get('/ajax/playlist.php', {t: Math.round(Date.now())}, function(data) {
 		$('.playlist-list').html('');
 		if(data == null) { data = []; }
 		window.playlist = data;
 		push_track_playlist(0);
+		$('.loading').fadeOut(300);
 	});
 }
 
@@ -41,16 +43,16 @@ function play_song(id, hidePrevNext) {
 		$('.controls .previous-button').show();
 		$('.now-playing').removeClass('no-n2d');
 	}
+	$('.player-loading').fadeIn(300);
 	$.get('/ajax/track.php', {id: id, t: Math.round(Date.now())}, function(track) {
 		$('.now-playing .title').html(track.title);
 		$('.now-playing .artist').html(track.artist);
-		$('.loading').fadeIn(300);
 		$.get('/ajax/youtube.php', {query: track.artist + ' - ' + track.title, t: Math.round(Date.now())}, function(data) {
 			var videoId = data[0].id;
 			$.get('/ajax/youtube-dl/fetch.php', {id: videoId, t: Math.round(Date.now())}, function(data) {
 				if(data == '') { return; }
 				playURL(data);
-				$('.loading').fadeOut(300);
+				$('.player-loading').fadeOut(300);
 			});
 		});
 	});

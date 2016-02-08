@@ -94,6 +94,7 @@ header("X-UA-Compatible: ie=7");
 			<div class="title"></div>
 			<div class="artist"></div>
 		</div>
+		<img src="img/loading3.gif" class="player-loading" />
 	</div>
 	<video id="player1"></video>
 </body>

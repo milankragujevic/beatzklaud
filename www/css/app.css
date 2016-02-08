@@ -261,6 +261,13 @@ body {
 	font-size: 15px;
 }
 
+.player-loading {
+	position: absolute;
+	top: 18px;
+	right: 10px;
+	display: none;
+}
+
 .now-playing.no-n2d {
 	left: 70px;
 }
