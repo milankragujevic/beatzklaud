@@ -8,6 +8,28 @@ function get_first_playlist_item() {
 	}
 }
 
+function get_next_playlist_item() {
+	var i = window.current_index;
+	while(true) {
+		if(i > total_songs()) { return total_songs(); }
+		i++;
+		if(typeof window.playlist[i] != 'undefined') {
+			return i;
+		}
+	}
+}
+
+function get_prev_playlist_item() {
+	var i = window.current_index;
+	while(true) {
+		if(i < 0 ) { return -1; }
+		i--;
+		if(typeof window.playlist[i] != 'undefined') {
+			return i;
+		}
+	}
+}
+
 function next_track_pusher(i) {
 	if(typeof window.playlist[i + 1] != 'undefined') {
 		push_track_playlist(i + 1);

@@ -1,19 +1,13 @@
 function next() {
 	if(total_songs() < 2) { return; }
-	var song = current_song() + 1;
-	if(song > total_songs()) {
-		song = 0;
-	}
+	var song = get_next_playlist_item();
 	window.current_index = song;
 	play_song(get_nth_song(song));
 }
 
 function previous() {
 	if(total_songs() < 2) { return; }
-	var song = current_song() - 1;
-	if(song < 0) {
-		song = total_songs() - 1;
-	}
+	var song = get_prev_playlist_item();
 	window.current_index = song;
 	play_song(get_nth_song(song));
 }
