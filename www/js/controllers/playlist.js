@@ -87,7 +87,8 @@ function total_songs() {
 	if(typeof window.playlist == 'undefined') {
 		return 0;
 	}
-	return window.playlist.length;
+	var myArray = $.map(window.playlist, function(v) { return v; });
+	return myArray.length;
 }
 
 function current_song() {
