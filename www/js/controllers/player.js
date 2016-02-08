@@ -102,9 +102,7 @@ function initPlayer(callback) {
 				updatePlayerTime();
 			}, false);
 			mediaElement.addEventListener('ended', function(e) { 
-				if(window.player.duration > 0 && window.player_state != 'paused') {
-					next();
-				}
+				next();
 			}, false);
 			callback();
 		},
