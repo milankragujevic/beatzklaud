@@ -21,11 +21,13 @@ h1 {
     color: #555;
     font-size: 2em;
     font-weight: 400;
+	text-align: center;
 }
 
 p {	 
 	margin: 0 auto;
     width: 280px;
+	text-align: left;
 }
 
 a img {
