@@ -1,33 +1,17 @@
 function get_first_playlist_item() {
-	var i = -1;
-	while(true) {
-		i++;
-		if(typeof window.playlist[i] != 'undefined') {
-			return i;
-		}
-	}
+	return window.playlist[0];
 }
 
 function get_next_playlist_item() {
 	var i = window.current_index;
-	while(true) {
-		if(i > total_songs()) { return total_songs(); }
-		i++;
-		if(typeof window.playlist[i] != 'undefined') {
-			return i;
-		}
-	}
+	if(i + 1 >= total_songs()) { i = -1; }
+	return window.playlist[i + 1];
 }
 
 function get_prev_playlist_item() {
 	var i = window.current_index;
-	while(true) {
-		if(i < 0 ) { return -1; }
-		i--;
-		if(typeof window.playlist[i] != 'undefined') {
-			return i;
-		}
-	}
+	if(i == 0) { i = total_songs() + 1; }
+	return window.playlist[i - 1];
 }
 
 function next_track_pusher(i) {
@@ -36,22 +20,18 @@ function next_track_pusher(i) {
 	}
 }
 
-function push_track_playlist(i) {
-	var id = window.playlist[i];
-	$.get('/ajax/track.php', {id: id, t: Math.round(Date.now())}, function(track) {
-		$('.playlist-list .track[data-id="' + id + '"]').remove();
-		$('.playlist-list').append('<div class="track" data-i="' + i + '" data-id="' + id + '"><div class="cover"><img src="' + track.thumbnail + '" width="87" height="87" /></div><div class="info"><div class="title">' + track.title + '</div><div class="meta">by <span class="artist">' + track.artist + '</span></div></div><div class="actions"><a href="#" class="delete-from-playlist"><img src="img/delete2.png" /></a><a href="#" class="play-song"><img src="img/play2.png" /></a></div></div>');
-		next_track_pusher(i);
-	});
-}
-
 function redraw_tracks() {
 	$('.loading').fadeIn(300);
 	$.get('/ajax/playlist.php', {t: Math.round(Date.now())}, function(data) {
 		$('.playlist-list').html('');
 		if(data == null) { data = []; }
 		window.playlist = data;
-		push_track_playlist(get_first_playlist_item());
+		$.each(window.playlist, function(i, id) {
+			$.get('/ajax/track.php', {id: id, t: Math.round(Date.now())}, function(track) {
+				$('.playlist-list .track[data-id="' + id + '"]').remove();
+				$('.playlist-list').append('<div class="track" data-i="' + i + '" data-id="' + id + '"><div class="cover"><img src="' + track.thumbnail + '" width="87" height="87" /></div><div class="info"><div class="title">' + track.title + '</div><div class="meta">by <span class="artist">' + track.artist + '</span></div></div><div class="actions"><a href="#" class="delete-from-playlist"><img src="img/delete2.png" /></a><a href="#" class="play-song"><img src="img/play2.png" /></a></div></div>');
+			});
+		});
 		$('.loading').fadeOut(300);
 	});
 }
@@ -109,8 +89,7 @@ function total_songs() {
 	if(typeof window.playlist == 'undefined') {
 		return 0;
 	}
-	var myArray = $.map(window.playlist, function(v) { return v; });
-	return myArray.length;
+	window.playlist.length;
 }
 
 function current_song() {
